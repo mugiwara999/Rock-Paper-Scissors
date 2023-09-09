@@ -45,11 +45,7 @@ function PlayRound(ComputerSelection, PlayerSelection) {
 }
 
 
-let PlayerSelection = prompt('your choice').toLowerCase();
 
-let ComputerSelection = getComputerChoice();
-
-console.log(PlayRound(ComputerSelection, PlayerSelection));
 
 
 let ComputerScore = 0;
@@ -70,11 +66,11 @@ while (ComputerScore + PlayerScore < 5) {
 
 
     PlayerScore++;
-    console.log("PlayerScore", PlayerScore)
+    console.log("PlayerScore", PlayerScore);
   } else if (PlayRound(ComputerSelection, PlayerSelection) === "Computer Wins") {
 
     ComputerScore++;
-    console.log("ComputerScore", ComputerScore)
+    console.log("ComputerScore", ComputerScore);
   }
 
 }
