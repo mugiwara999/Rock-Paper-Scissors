@@ -70,7 +70,7 @@ while (ComputerScore + PlayerScore < 5) {
 
 
     PlayerScore++;
-  } else {
+  } else if (PlayRound(ComputerSelection, PlayerSelection) === "Computer Wins") {
 
     ComputerScore++;
   }
