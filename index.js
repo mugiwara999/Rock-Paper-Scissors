@@ -70,9 +70,11 @@ while (ComputerScore + PlayerScore < 5) {
 
 
     PlayerScore++;
+    console.log("PlayerScore", PlayerScore)
   } else if (PlayRound(ComputerSelection, PlayerSelection) === "Computer Wins") {
 
     ComputerScore++;
+    console.log("ComputerScore", ComputerScore)
   }
 
 }
