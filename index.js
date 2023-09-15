@@ -53,34 +53,57 @@ let PlayerScore = 0;
 
 
 
+let PlayerSelection;
+const buttons = document.querySelectorAll('.button');
 
-while (ComputerScore + PlayerScore < 5) {
+const container = document.querySelector('body');
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
 
-  let PlayerSelection = prompt('your choice').toLowerCase();
+  // and for each one we add a 'click' listener
+  button.addEventListener('click', () => {
 
-  let ComputerSelection = getComputerChoice();
+    let ComputerSelection = getComputerChoice();
 
-  console.log(PlayRound(ComputerSelection, PlayerSelection));
+    PlayerSelection = button.getAttribute('id');
+    console.log(PlayerSelection);
+    let winner = PlayRound(ComputerSelection, PlayerSelection);
 
-  if (PlayRound(ComputerSelection, PlayerSelection) === "Player Wins") {
-
-
-    PlayerScore++;
-    console.log("PlayerScore", PlayerScore);
-  } else if (PlayRound(ComputerSelection, PlayerSelection) === "Computer Wins") {
-
-    ComputerScore++;
-    console.log("ComputerScore", ComputerScore);
-  }
-
-}
+    if (PlayRound(ComputerSelection, PlayerSelection) === "Player Wins") {
 
 
-if (PlayerScore > ComputerScore) {
-  console.log("You Win")
-}
-else {
-  console.log("Computer Wins")
-}
+      PlayerScore++;
+    }
+    else if (PlayRound(ComputerSelection, PlayerSelection) === "Computer Wins") {
 
-console.log(`You got ${PlayerScore} and computer score is ${ComputerScore}`)
+      ComputerScore++;
+    }
+
+    console.log(ComputerScore, PlayerScore);
+
+
+    if (PlayerScore + ComputerScore === 5) {
+
+
+      if (PlayerScore > ComputerScore) {
+        // console.log("You Win")
+        winner = 'You won';
+      }
+      else {
+        // console.log("Computer Wins")
+        winner = 'Computer Won';
+
+      }
+
+
+    }
+
+    div.textContent = winner;
+  })
+});
+
+const div = document.createElement('div');
+
+div.classList.add('winner');
+
+container.appendChild(div);

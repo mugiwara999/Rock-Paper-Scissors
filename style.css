@@ -1,0 +1,18 @@
+.button {
+  width : 100px;
+}
+
+.container {
+  display : flex;
+
+  gap : 30px;
+  
+
+  justify-content: space-evenly;
+}
+
+.winner {
+  display: flex;
+
+  justify-content: center;
+}
